@@ -1,10 +1,8 @@
 package com.yuliya1303.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import com.yuliya1303.config.AppUrlConfig;
 import com.yuliya1303.config.BrowserstackCredentialsConfig;
-import com.yuliya1303.config.DeviceConfig;
-import com.yuliya1303.config.OsVersionConfig;
+import com.yuliya1303.config.LaunchConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
@@ -19,9 +17,7 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
         BrowserstackCredentialsConfig browserstackConfig = ConfigFactory.create(BrowserstackCredentialsConfig.class);
-        DeviceConfig deviceConfig = ConfigFactory.create(DeviceConfig.class);
-        OsVersionConfig versionConfig = ConfigFactory.create(OsVersionConfig.class);
-        AppUrlConfig appUrlConfig = ConfigFactory.create(AppUrlConfig.class);
+        LaunchConfig launchConfig = ConfigFactory.create(LaunchConfig.class);
 
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
@@ -31,11 +27,11 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("browserstack.key", browserstackConfig.key());
 
         // Set URL of the application under test
-        mutableCapabilities.setCapability("app", "bs://" + appUrlConfig);
+        mutableCapabilities.setCapability("app", "bs://9e66fbff3e511a8eac409eaf4290f45783ccfbd0");
 
         // Specify device and os_version for testing
-        mutableCapabilities.setCapability("device", deviceConfig.device());
-        mutableCapabilities.setCapability("os_version", versionConfig.version());
+        mutableCapabilities.setCapability("device", launchConfig.device());
+        mutableCapabilities.setCapability("os_version", launchConfig.osVersion());
 
         // Set other BrowserStack capabilities
         mutableCapabilities.setCapability("project", "homework21");
@@ -45,8 +41,11 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
     }
 
     public static URL getBrowserstackUrl() {
+
+        LaunchConfig launchConfig = ConfigFactory.create(LaunchConfig.class);
+
         try {
-            return new URL("http://hub.browserstack.com/wd/hub");
+            return new URL(launchConfig.hostUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
