@@ -2,7 +2,6 @@ package com.yuliya1303.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-//import com.yuliya1303.drivers.BrowserstackMobileDriver;
 import com.yuliya1303.drivers.BrowserstackMobileDriver;
 import com.yuliya1303.drivers.LocalMobileDriver;
 import com.yuliya1303.helpers.Attach;
@@ -10,8 +9,6 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-
-import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
@@ -25,7 +22,7 @@ public class TestBase {
     @BeforeAll
     public static void setup() {
 
-        if ((launchHost == "local") || (launchHost == "androidStudio")) {
+        if ((launchHost.equals("local")) || (launchHost.equals("androidStudio"))) {
             Configuration.browser = LocalMobileDriver.class.getName();
         } else {
             Configuration.browser = BrowserstackMobileDriver.class.getName();
@@ -48,7 +45,7 @@ public class TestBase {
         Attach.pageSource();
 
         step("Close driver", Selenide::closeWebDriver);
-        if (launchHost == "browserstack") {
+        if (launchHost.equals("browserstack")) {
             Attach.video(sessionId);
         }
     }

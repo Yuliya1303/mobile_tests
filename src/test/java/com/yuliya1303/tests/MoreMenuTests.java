@@ -1,6 +1,7 @@
 package com.yuliya1303.tests;
 
 import io.appium.java_client.AppiumBy;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -8,6 +9,7 @@ import static io.qameta.allure.Allure.step;
 
 public class MoreMenuTests extends TestBase {
     @Test
+    @DisplayName("Verify that Login item exists in 'More' menu item")
     void moreMenuContainsLoginItem() {
         back();
         step("Open More menu", () ->
@@ -18,6 +20,7 @@ public class MoreMenuTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Verify that Settings item exists in 'More' menu item")
     void moreMenuContainsSettingsItem() {
         back();
         step("Open More menu", () ->
@@ -28,6 +31,7 @@ public class MoreMenuTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Verify that Donate item exists in 'More' menu item")
     void moreMenuContainsDonateItem() {
         back();
         step("Open More menu", () ->

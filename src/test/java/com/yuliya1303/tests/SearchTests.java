@@ -2,6 +2,7 @@ package com.yuliya1303.tests;
 
 import com.codeborne.selenide.CollectionCondition;
 import io.appium.java_client.AppiumBy;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.matchText;
@@ -11,6 +12,7 @@ import static io.qameta.allure.Allure.step;
 
 public class SearchTests extends TestBase {
     @Test
+    @DisplayName("Verify that Search results are displayed after entering valid Search data")
     void searchResultsDisplayedWithExistingData() {
         back();
         step("Type existing search data", () -> {
@@ -23,6 +25,7 @@ public class SearchTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Verify that No results are displayed after entering not available Search data")
     void noResultsDisplayedWithNotExistingData() {
         back();
         step("Type not existing search data", () -> {
@@ -35,6 +38,7 @@ public class SearchTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Verify that Empty placeholder is displayed after clearing Search field")
     void emptyPlaceholderDisplayedIfDataIsCleared() {
         back();
         step("Type search data", () -> {
@@ -50,6 +54,7 @@ public class SearchTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Verify that Article is opened after clicking on Search result data")
     void articleIsOpenedFromSearchResults() {
         back();
         step("Type existing search data", () -> {
