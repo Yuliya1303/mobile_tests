@@ -19,9 +19,9 @@ import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 public class LocalMobileDriver implements WebDriverProvider {
 
-    public static URL getAppiumServerUrl() {
+    static LaunchConfig launchConfig = ConfigFactory.create(LaunchConfig.class);
 
-        LaunchConfig launchConfig = ConfigFactory.create(LaunchConfig.class);
+    public static URL getAppiumServerUrl() {
 
         try {
             return new URL(launchConfig.hostUrl());

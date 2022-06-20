@@ -13,11 +13,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BrowserstackMobileDriver implements WebDriverProvider {
+    static LaunchConfig launchConfig = ConfigFactory.create(LaunchConfig.class);
 
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
         BrowserstackCredentialsConfig browserstackConfig = ConfigFactory.create(BrowserstackCredentialsConfig.class);
-        LaunchConfig launchConfig = ConfigFactory.create(LaunchConfig.class);
 
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
@@ -41,8 +41,6 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
     }
 
     public static URL getBrowserstackUrl() {
-
-        LaunchConfig launchConfig = ConfigFactory.create(LaunchConfig.class);
 
         try {
             return new URL(launchConfig.hostUrl());
