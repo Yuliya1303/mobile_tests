@@ -40,13 +40,16 @@
 </p>
 
 ## :keyboard: Пример файла browserstackCredentials.properties
-Файл browserstackCredentials.properties необходим для запуска тестов в Browserstack
-
+- Файл browserstackCredentials.properties необходим для запуска тестов в Browserstack
 Локация файла:
+```
 src/test/resources/config/browserstackCredentials.properties
+```
 Содержание файла:
+```
 user=
 key=
+```
 
 ## :keyboard: Запуск из терминала
 Локальный запуск тестов с локального устройства:
