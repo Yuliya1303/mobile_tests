@@ -40,12 +40,12 @@
 </p>
 
 ## :keyboard: Пример файла browserstackCredentials.properties
-- Файл browserstackCredentials.properties необходим для запуска тестов в Browserstack
-Локация файла:
+> Файл browserstackCredentials.properties необходим для запуска тестов в Browserstack
+- Локация файла:
 ```
 src/test/resources/config/browserstackCredentials.properties
 ```
-Содержание файла:
+- Содержание файла:
 ```
 user=
 key=
