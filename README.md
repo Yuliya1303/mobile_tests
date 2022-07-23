@@ -18,10 +18,11 @@
 <img width="6%" title="Gradle" src="images/logo/Gradle.svg">
 <img width="6%" title="JUnit5" src="images/logo/JUnit5.svg">
 <img width="6%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg">
-<img width="6%" title="Selenoid" src="images/logo/Selenoid.svg">
 <img width="6%" title="GitHub" src="images/logo/GitHub.svg">
 <img width="6%" title="Jenkins" src="images/logo/Jenkins.svg">
-<img width="6%" title="Telegram" src="images/logo/Telegram.svg">
+<img width="6%" title="Android Studio" src="images/logo/Android_studio.svg">
+<img width="6%" title="Appium" src="images/logo/Appium.svg">
+<img width="6%" title="Browserstack" src="images/logo/Browserstack.svg">
 </p>
 
 ## :clipboard: Реализованные проверки
@@ -35,7 +36,7 @@
 <img title="Jenkins Job Run with parameters" src="images/screenshots/jenkins-run.png">
 </p>
 <p align="center">
-<img title="Jenkins Dashboard" src="images/screenshots/jenkins-dashboard-all.png">
+<img title="Jenkins Dashboard" src="images/screenshots/jenkins-dashboard.png">
 </p>
 
 ## :keyboard: Пример файла browserstackCredentials.properties
