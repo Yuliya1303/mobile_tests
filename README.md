@@ -54,17 +54,17 @@ key=
 ## :keyboard: Запуск из терминала
 Локальный запуск тестов с локального устройства:
 ```
-gradle clean local
+gradle clean -Dlaunch=local
 ```
 
 Локальный запуск тестов с browserstack:
 ```
-gradle clean browserstack
+gradle clean -Dlaunch=browserstack
 ```
 
 Локальный запуск тестов с Android Studio:
 ```
-gradle clean androidStudio
+gradle clean -Dlaunch=androidStudio
 ```
 
 Удаленный запуск тестов:
