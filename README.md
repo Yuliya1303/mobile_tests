@@ -56,24 +56,14 @@ key=
 ```
 gradle clean -Dlaunch=local
 ```
-
-Локальный запуск тестов с browserstack:
+Запуск тестов с browserstack:
 ```
 gradle clean -Dlaunch=browserstack
 ```
-
-Локальный запуск тестов с Android Studio:
+Запуск тестов с Android Studio:
 ```
 gradle clean -Dlaunch=androidStudio
 ```
-
-Удаленный запуск тестов:
-```
-clean
-test
- -Dlaunch=${LaunchHost}
-```
-
 
 ## :bar_chart: Allure отчет
 - ### Главный экран отчета
