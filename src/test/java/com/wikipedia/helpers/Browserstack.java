@@ -1,4 +1,4 @@
-package com.yuliya1303.helpers;
+package com.wikipedia.helpers;
 
 import static io.restassured.RestAssured.given;
 import static java.lang.String.format;

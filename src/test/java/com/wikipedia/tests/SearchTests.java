@@ -1,4 +1,4 @@
-package com.yuliya1303.tests;
+package com.wikipedia.tests;
 
 import com.codeborne.selenide.CollectionCondition;
 import io.appium.java_client.AppiumBy;

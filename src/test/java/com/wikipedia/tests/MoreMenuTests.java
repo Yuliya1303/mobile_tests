@@ -1,4 +1,4 @@
-package com.yuliya1303.tests;
+package com.wikipedia.tests;
 
 import io.appium.java_client.AppiumBy;
 import org.junit.jupiter.api.DisplayName;

@@ -1,8 +1,8 @@
-package com.yuliya1303.drivers;
+package com.wikipedia.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import com.yuliya1303.config.BrowserstackCredentialsConfig;
-import com.yuliya1303.config.LaunchConfig;
+import com.wikipedia.config.BrowserstackCredentialsConfig;
+import com.wikipedia.config.DeviceHostConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
@@ -13,7 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BrowserstackMobileDriver implements WebDriverProvider {
-    static LaunchConfig launchConfig = ConfigFactory.create(LaunchConfig.class);
+    static DeviceHostConfig deviceHostConfig = ConfigFactory.create(DeviceHostConfig.class);
 
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
@@ -30,8 +30,8 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("app", "bs://j3c874f21852ba57957a3fdc33f47514288c4ba4");
 
         // Specify device and os_version for testing
-        mutableCapabilities.setCapability("device", launchConfig.device());
-        mutableCapabilities.setCapability("os_version", launchConfig.osVersion());
+        mutableCapabilities.setCapability("device", deviceHostConfig.device());
+        mutableCapabilities.setCapability("os_version", deviceHostConfig.osVersion());
 
         // Set other BrowserStack capabilities
         mutableCapabilities.setCapability("project", "homework21");
@@ -43,7 +43,7 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
     public static URL getBrowserstackUrl() {
 
         try {
-            return new URL(launchConfig.hostUrl());
+            return new URL(deviceHostConfig.hostUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

@@ -1,7 +1,7 @@
-package com.yuliya1303.drivers;
+package com.wikipedia.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import com.yuliya1303.config.LaunchConfig;
+import com.wikipedia.config.DeviceHostConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.AutomationName;
@@ -19,12 +19,12 @@ import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 public class LocalMobileDriver implements WebDriverProvider {
 
-    static LaunchConfig launchConfig = ConfigFactory.create(LaunchConfig.class);
+    static DeviceHostConfig deviceHostConfig = ConfigFactory.create(DeviceHostConfig.class);
 
     public static URL getAppiumServerUrl() {
 
         try {
-            return new URL(launchConfig.hostUrl());
+            return new URL(deviceHostConfig.hostUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -32,7 +32,7 @@ public class LocalMobileDriver implements WebDriverProvider {
 
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
-        LaunchConfig launchConfig = ConfigFactory.create(LaunchConfig.class);
+        DeviceHostConfig deviceHostConfig = ConfigFactory.create(DeviceHostConfig.class);
 
         File app = getApp();
 
@@ -40,8 +40,8 @@ public class LocalMobileDriver implements WebDriverProvider {
         options.merge(capabilities);
         options.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
         options.setPlatformName("Android");
-        options.setDeviceName(launchConfig.device());
-        options.setPlatformVersion(launchConfig.osVersion());
+        options.setDeviceName(deviceHostConfig.device());
+        options.setPlatformVersion(deviceHostConfig.osVersion());
         options.setApp(app.getAbsolutePath());
         options.setAppPackage("org.wikipedia.alpha");
         options.setAppActivity("org.wikipedia.main.MainActivity");
